@@ -1,0 +1,57 @@
+<div
+  class="card"
+  [ngClass]="cardClasses"
+  (click)="goToDetails()"
+  [style.borderLeftColor]="
+    course.gradeStatus === 'passed'
+      ? 'green'
+      : course.gradeStatus === 'failed'
+      ? 'red'
+      : 'grey'
+">
+
+
+<h3>{{course.name}}</h3>
+
+<p>ID: {{course.id}}</p>
+
+<p>Code: {{course.code}}</p>
+
+
+<p>
+Credits:
+{{course.credits | creditLabel}}
+</p>
+
+
+<div [ngSwitch]="course.gradeStatus">
+
+<p *ngSwitchCase="'passed'" class="passed">
+Passed
+</p>
+
+<p *ngSwitchCase="'failed'" class="failed">
+Failed
+</p>
+
+<p *ngSwitchCase="'pending'" class="pending">
+Pending
+</p>
+
+</div>
+
+
+<button (click)="toggleExpand()">
+{{ isExpanded ? 'Hide Details' : 'Show Details' }}
+</button>
+
+
+<button 
+(click)="enroll(); $event.stopPropagation()">
+
+{{ isCourseEnrolled() ? 'Unenroll' : 'Enroll' }}
+
+</button>
+
+
+</div>
