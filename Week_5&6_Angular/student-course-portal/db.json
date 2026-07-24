@@ -1,0 +1,65 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Data Structures",
+      "code": "CSE201",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 2,
+      "name": "Operating Systems",
+      "code": "CSE301",
+      "credits": 4,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": 3,
+      "name": "Computer Networks",
+      "code": "CSE302",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": 4,
+      "name": "DBMS",
+      "code": "CSE303",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 5,
+      "name": "Machine Learning",
+      "code": "AIML401",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": 6,
+      "name": "Artificial Intelligence",
+      "code": "AIML402",
+      "credits": 4,
+      "gradeStatus": "passed"
+    }
+  ],
+  "students":[
+    {
+      "id":1,
+      "name":"Rahul",
+      "courseId":1
+    },
+    {
+      "id":2,
+      "name":"Amit",
+      "courseId":1
+    },
+    {
+      "id":3,
+      "name":"Sara",
+      "courseId":2
+    }
+  ],
+  "enrollments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}

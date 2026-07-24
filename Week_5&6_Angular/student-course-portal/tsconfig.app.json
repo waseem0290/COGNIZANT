@@ -1,0 +1,16 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*.ts"
+, "src/app/services/auth.spec.ts.old", "src/app/services/course.spec.ts", "src/app/services/enrollment.spec.ts.old", "src/app/services/loading.spec.ts.old", "src/app/services/notification.spec.ts.old", "src/app/services/student.spec.ts.old", "src/app/guards/unsavedchanges-guard.spec.ts.old"  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ]
+}
