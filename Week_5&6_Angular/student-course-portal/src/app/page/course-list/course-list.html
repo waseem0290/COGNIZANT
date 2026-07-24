@@ -1,0 +1,141 @@
+<p *ngIf="isLoading$ | async">
+  Loading courses...
+</p>
+
+
+<p *ngIf="errorMessage$ | async as error">
+  {{error}}
+</p>
+
+
+
+<input
+type="text"
+[(ngModel)]="searchTerm"
+placeholder="Search courses">
+
+
+
+<button
+(click)="searchCourses()">
+
+Search
+
+</button>
+
+
+
+<p>
+Searching for: {{searchTerm}}
+</p>
+
+
+
+
+<ng-container
+*ngIf="courses$ | async as courses">
+
+
+<div *ngIf="courses.length; else noCourses">
+
+
+<app-course-card
+
+*ngFor="let c of courses; trackBy: trackByCourseId"
+
+[course]="c"
+
+appHighlight="lightblue"
+
+(enrollRequested)="onEnroll($event)">
+
+</app-course-card>
+
+
+
+<hr>
+
+
+<h3>
+Manage Courses
+</h3>
+
+
+
+<div *ngFor="let c of courses">
+
+
+<p>
+{{c.name}} ({{c.code}})
+</p>
+
+
+<button
+(click)="viewStudents(c.id)">
+
+View Students
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</ng-container>
+
+
+
+<ng-template #noCourses>
+
+<p>
+No courses available.
+</p>
+
+</ng-template>
+
+
+
+<p *ngIf="selectedCourseId">
+
+Selected course ID:
+{{selectedCourseId}}
+
+</p>
+
+
+
+
+<hr>
+
+
+<h3>
+Students Enrolled
+</h3>
+
+
+
+<div *ngIf="selectedStudents.length; else noStudents">
+
+
+<p *ngFor="let student of selectedStudents">
+
+{{student.name}}
+
+</p>
+
+
+</div>
+
+
+
+<ng-template #noStudents>
+
+<p>
+Select a course to view students.
+</p>
+
+</ng-template>
